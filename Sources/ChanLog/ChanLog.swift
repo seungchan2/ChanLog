@@ -3,7 +3,6 @@ import os.log
 
 extension OSLog {
     static let subsystem = Bundle.main.bundleIdentifier!
-    static let warning = OSLog(subsystem: subsystem, category: "Warning")
     /// Simple logging in the development environment (not shown in the 'Console' app on Mac, only displayed in Xcode console)
     static let debug = OSLog(subsystem: subsystem, category: "Debug")
     /// iSimilar to error cases but with a longer error description
@@ -70,12 +69,10 @@ public struct ChanLog {
         let extraMessage: String = arguments.map({ String(describing: $0) }).joined(separator: " ")
         let fileName = (file as NSString).lastPathComponent
         let logMessage = """
-            1.time: \(date)
-            2.message: \(message)
-            3.value: \(extraMessage)
-            4.fileName: \(fileName)
-            5.line: \(line)
-            6.function: \(function)
+            time: \(date)
+            message: \(message)
+            value: \(extraMessage)
+            fileName: \(fileName) function: \(function) \(line)lines
             """
         if #available(iOS 14.0, *, macOS 11.0) {
             let logger = Logger(subsystem: OSLog.subsystem, category: type.category)
@@ -127,7 +124,7 @@ public extension ChanLog {
     
     static func custom(category: String,
                        _ message: Any,
-                       _ arguments: Any…,
+                       _ arguments: Any...,
                        file: String = #file,
                        function: String = #function,
                        line: Int = #line) {
