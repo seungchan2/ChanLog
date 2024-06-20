@@ -6,23 +6,13 @@
 import Foundation
 import os.log
 
-extension OSLog {
-    static let subsystem = Bundle.main.bundleIdentifier!
-    /// Simple logging in the development environment (not shown in the 'Console' app on Mac, only displayed in Xcode console)
-    static let debug = OSLog(subsystem: subsystem, category: "Debug")
-    /// iSimilar to error cases but with a longer error description
-    static let info = OSLog(subsystem: subsystem, category: "Info")
-    /// Similar to Info cases but for simple errors
-    static let error = OSLog(subsystem: subsystem, category: "Error")
-}
-
 public struct ChanLog {
     @frozen
     enum LogType {
         case error
         case info
         case debug
-        case custom(categoryName: String)
+        case custom(name: String)
         
         fileprivate var category: String {
             switch self {
@@ -64,7 +54,7 @@ public struct ChanLog {
         }
     }
     
-    static private func log(_ message: Any,
+    static internal func log(_ message: Any,
                             _ arguments: [Any],
                             type: LogType,
                             file: String = #file,
@@ -99,40 +89,5 @@ public struct ChanLog {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.locale = Locale(identifier: "ko_KR")
         return dateFormatter.string(from: Date())
-    }
-}
-
-public extension ChanLog {
-    static func debug(_ message: Any,
-                      _ arguments: Any...,
-                      file: String = #file,
-                      function: String = #function,
-                      line: Int = #line) {
-        log(message, arguments, type: .debug, file: file, function: function, line: line)
-    }
-    
-    static func info(_ message: Any,
-                     _ arguments: Any...,
-                     file: String = #file,
-                     function: String = #function,
-                     line: Int = #line) {
-        log(message, arguments, type: .info, file: file, function: function, line: line)
-    }
-    
-    static func error(_ message: Any,
-                      _ arguments: Any...,
-                      file: String = #file,
-                      function: String = #function,
-                      line: Int = #line) {
-        log(message, arguments, type: .error, file: file, function: function, line: line)
-    }
-    
-    static func custom(category: String,
-                       _ message: Any,
-                       _ arguments: Any...,
-                       file: String = #file,
-                       function: String = #function,
-                       line: Int = #line) {
-        log(message, arguments, type: .custom(categoryName: category), file: file, function: function, line: line)
     }
 }
