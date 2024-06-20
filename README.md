@@ -12,7 +12,21 @@ First, install **ChanLog** via [Swift Package Manager](https://swift.org/package
 
 Then use `ChanLog` to utilize `Logger` for iOS 14 and above, and `os_log` for iOS 13 and below.
 
+You can use `ChanLog` with collection types and UI properties.
 
+### Swift Package Manager
+
+[Swift Package Manager](https://swift.org/package-manager/) is a tool for managing the distribution of Swift code. It’s integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies.
+
+> Xcode 11+ is required to build SnapKit using Swift Package Manager.
+
+To integrate `ChanLog` into your Xcode project using Swift Package Manager, add it to the dependencies value of your `Package.swift`
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/seungchan2/ChanLog.git", branch: "main"))
+]
+```
 
 ## Swift Usage
 you can `import ChanLog`
@@ -32,17 +46,20 @@ let label: UILabel = {
 label.info("ChanLog Info Label", self.label.text) // info
 
 ...
+// expected array value 
 // currentTime, message, value, fileName, function, lines
 time: 2024-06-19 16:53:54
 message: 숫자 정보를 담은 배열
 value: [1, 2, 3]
 fileName: ViewController.swift function: viewDidLoad() 22lines
 
+// expected label value 
 time: 2024-06-20 16:12:19
 message: ChanLog Info Label
 value: <UILabel: 0x103e08a90; frame = (0 0; 0 0); text = '1...1' (length = 3); userInteractionEnabled = NO; backgroundColor = UIExtendedGrayColorSpace 0 0; layer = <_UILabelLayer: 0x600002614a80>> Optional("chanLog")
 fileName: ViewController.swift function: viewDidLoad() 28lines
 ```
+
 
 ## More information
 ### debug
