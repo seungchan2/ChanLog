@@ -7,7 +7,7 @@ let package = Package(
     name: "ChanLog",
     platforms: [
          // Specify the minimum version of iOS required.
-         .iOS(.v14)
+         .iOS(.v12)
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
