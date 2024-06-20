@@ -24,7 +24,5 @@ extension Float: ChanLoggable {}
 extension Bool: ChanLoggable {}
 extension Array: ChanLoggable where Element: CustomStringConvertible {}
 extension NSObject: ChanLoggable {}
-
-#if canImport(UIKit)
-    extension UIView: ChanLoggable {}
-#endif
+extension Dictionary: ChanLoggable {}
+extension Set: ChanLoggable {}
