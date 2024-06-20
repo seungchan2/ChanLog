@@ -18,20 +18,31 @@ Then use `ChanLog` to utilize `Logger` for iOS 14 and above, and `os_log` for iO
 you can `import ChanLog`
 ```swift
 let array: [Int] = [1, 2, 3]
-ChanLog.debug("숫자 정보를 담은 배열", array) // debug
-ChanLog.info("This is an info message", "Additional info") // info
-ChanLog.error("This is an error message", "Additional info") // error
-ChanLog.custom(category: "CustomCategory", "This is a custom message", "Additional info") // custom
+array.debug("숫자 정보를 담은 배열", array) // debug
+array.info("This is an info message", "Additional info") // info
+array.error("This is an error message", "Additional info") // error
+array.custom(category: "CustomCategory", "This is a custom message", "Additional info") // custom
+
+let label: UILabel = {
+  let label = UILabel()
+  label.text = "chanLog"
+  return label
+}()
+
+label.info("ChanLog Info Label", self.label.text) // info
 
 ...
 // currentTime, message, value, fileName, function, lines
 time: 2024-06-19 16:53:54
 message: 숫자 정보를 담은 배열
 value: [1, 2, 3]
-fileName: ViewController.swift function: viewDidLoad() 22lines 
+fileName: ViewController.swift function: viewDidLoad() 22lines
+
+time: 2024-06-20 16:12:19
+message: ChanLog Info Label
+value: <UILabel: 0x103e08a90; frame = (0 0; 0 0); text = '1...1' (length = 3); userInteractionEnabled = NO; backgroundColor = UIExtendedGrayColorSpace 0 0; layer = <_UILabelLayer: 0x600002614a80>> Optional("chanLog")
+fileName: ViewController.swift function: viewDidLoad() 28lines
 ```
-
-
 
 ## More information
 ### debug
