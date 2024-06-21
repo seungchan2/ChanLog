@@ -55,19 +55,26 @@ public struct ChanLog {
     }
     
     static internal func log(_ message: Any,
-                            _ arguments: [Any],
-                            type: LogType,
-                            file: String = #file,
-                            function: String = #function,
-                            line: Int = #line) {
+                             _ arguments: [Any],
+                             type: LogType,
+                             file: String = #file,
+                             function: String = #function,
+                             line: Int = #line,
+                             debugMode: DebugMode) {
         let date = ChanLog().getCurrentKSTDateString()
         let extraMessage: String = arguments.map({ String(describing: $0) }).joined(separator: " ")
         let fileName = (file as NSString).lastPathComponent
-        let logMessage = """
+        let logMessage = debugMode == .on ?
+            """
             time: \(date)
             message: \(message)
             value: \(extraMessage)
             fileName: \(fileName) function: \(function) \(line)lines
+            """
+        :
+            """
+            message: \(message)
+            value: \(extraMessage)
             """
         if #available(iOS 14.0, *, macOS 11.0) {
             let logger = Logger(subsystem: OSLog.subsystem, category: type.category)
