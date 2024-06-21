@@ -21,7 +21,7 @@ public extension ChanLoggable {
                file: String = #file,
                function: String = #function,
                line: Int = #line) {
-        ChanLog.log(message, [self] + arguments, type: .debug, file: file, function: function, line: line, debugMode: .on)
+        ChanLog.log(message, arguments, type: .debug, file: file, function: function, line: line, debugMode: .on)
     }
     
     func debug(_ message: Any) {
@@ -33,7 +33,7 @@ public extension ChanLoggable {
               file: String = #file,
               function: String = #function,
               line: Int = #line) {
-        ChanLog.log(message, [self] + arguments, type: .info, file: file, function: function, line: line, debugMode: .on)
+        ChanLog.log(message, arguments, type: .info, file: file, function: function, line: line, debugMode: .on)
     }
     
     func info(_ message: Any) {
@@ -45,7 +45,7 @@ public extension ChanLoggable {
                file: String = #file,
                function: String = #function,
                line: Int = #line) {
-        ChanLog.log(message, [self] + arguments, type: .error, file: file, function: function, line: line, debugMode: .on)
+        ChanLog.log(message, arguments, type: .error, file: file, function: function, line: line, debugMode: .on)
     }
     
     func error(_ message: Any) {
@@ -58,7 +58,7 @@ public extension ChanLoggable {
                 file: String = #file,
                 function: String = #function,
                 line: Int = #line) {
-        ChanLog.log(message, [self] + arguments, type: .custom(name: category), file: file, function: function, line: line, debugMode: .on)
+        ChanLog.log(message, arguments, type: .custom(name: category), file: file, function: function, line: line, debugMode: .on)
     }
     
     func custom(category: String,
