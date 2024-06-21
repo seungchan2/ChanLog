@@ -61,7 +61,7 @@ public extension ChanLoggable {
         ChanLog.log(message, [self] + arguments, type: .custom(name: category), file: file, function: function, line: line, debugMode: .on)
     }
     
-    func simpleCustom(category: String,
+    func custom(category: String,
                       _ message: Any) {
         ChanLog.log(message, [self], type: .custom(name: category), debugMode: .off)
     }
