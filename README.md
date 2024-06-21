@@ -50,13 +50,13 @@ array.custom(category: "CustomCategory", "This is a custom message") // simple c
 // expected array value 
 // currentTime, message, value, fileName, function, lines
 time: 2024-06-19 16:53:54
-message: 숫자 정보를 담은 배열
+message: This is an info message
 value: [1, 2, 3]
 fileName: ViewController.swift function: viewDidLoad() 22lines
 
 // expected more simply array value
 // If you don't type argument, you can get simple results
-message: 숫자 정보를 담은 배열
+message: This is an info message
 value: [1, 2, 3]
 
 ```
