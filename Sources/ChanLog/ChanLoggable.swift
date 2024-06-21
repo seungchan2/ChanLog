@@ -62,7 +62,7 @@ public extension ChanLoggable {
     }
     
     func custom(category: String,
-                      _ message: Any) {
+                _ message: Any) {
         ChanLog.log(message, [self], type: .custom(name: category), debugMode: .off)
     }
 }
