@@ -35,17 +35,17 @@ let array: [Int] = [1, 2, 3]
 
 print("This is an info message", array) ❌
 
-array.debug("This is an info message", array) // debug ⭕
-array.debug("This is an info message") // simple debug ⭕
+array.debug("This is an info message") // debug ⭕
+array.minDebug("This is an info message") // simple debug ⭕
 
-array.info("This is an info message", "Additional info") // info ⭕
-array.info("This is an info message") // simple info ⭕
+array.info("This is an info message") // info ⭕
+array.minInfo("This is an info message") // simple info ⭕
 
-array.error("This is an error message", "Additional info") // error ⭕
-array.error("This is an error message") // simple error ⭕
+array.error("This is an error message") // error ⭕
+array.minError("This is an error message") // simple error ⭕
 
-array.custom(category: "CustomCategory", "This is a custom message", "Additional info") // custom ⭕
-array.custom(category: "CustomCategory", "This is a custom message") // simple custom ⭕
+array.custom(category: "CustomCategory", "This is a custom message") // custom ⭕
+array.minCustom(category: "CustomCategory", "This is a custom message") // simple custom ⭕
 
 // expected array value 
 // currentTime, message, value, fileName, function, lines
@@ -69,8 +69,8 @@ let label: UILabel = {
 
 print("ChanLog Info Label", label.text) ❌
 
-label.info("ChanLog Info Label", self.label.text) // info ⭕
-label.text?.info("ChanLog Info Label") // simple info ⭕
+label.info("ChanLog Info Label") // info ⭕
+label.text?.minInfo("ChanLog Info Label") // simple info ⭕
 
 // expected label value 
 time: 2024-06-20 16:12:19
