@@ -29,21 +29,23 @@ dependencies: [
 ```
 
 ## Swift Usage
-you can `import ChanLog`
+you can `import ChanLog`
 ```swift
 let array: [Int] = [1, 2, 3]
 
-array.debug("숫자를 담은 배열", array) // debug
-array.debug("숫자를 담은 배열") // simple debug
+print("This is an info message", array) ❌
 
-array.info("This is an info message", "Additional info") // info
-array.info("This is an info message") // simple info
+array.debug("This is an info message", array) // debug ⭕
+array.debug("This is an info message") // simple debug ⭕
 
-array.error("This is an error message", "Additional info") // error
-array.error("This is an error message") // simple error
+array.info("This is an info message", "Additional info") // info ⭕
+array.info("This is an info message") // simple info ⭕
 
-array.custom(category: "CustomCategory", "This is a custom message", "Additional info") // custom
-array.custom(category: "CustomCategory", "This is a custom message") // simpel custom
+array.error("This is an error message", "Additional info") // error ⭕
+array.error("This is an error message") // simple error ⭕
+
+array.custom(category: "CustomCategory", "This is a custom message", "Additional info") // custom ⭕
+array.custom(category: "CustomCategory", "This is a custom message") // simple custom ⭕
 
 // expected array value 
 // currentTime, message, value, fileName, function, lines
@@ -53,7 +55,7 @@ value: [1, 2, 3]
 fileName: ViewController.swift function: viewDidLoad() 22lines
 
 // expected more simply array value
-// If you don't type argument, you can get simpler results
+// If you don't type argument, you can get simple results
 message: 숫자 정보를 담은 배열
 value: [1, 2, 3]
 
@@ -65,8 +67,10 @@ let label: UILabel = {
     return label
 }()
 
-label.info("ChanLog Info Label", self.label.text) // info
-label.text?.info("ChanLog Info Label") // simply info
+print("ChanLog Info Label", label.text) ❌
+
+label.info("ChanLog Info Label", self.label.text) // info ⭕
+label.text?.info("ChanLog Info Label") // simple info ⭕
 
 // expected label value 
 time: 2024-06-20 16:12:19
@@ -75,7 +79,7 @@ value: Optional("chanLog")
 fileName: ViewController.swift function: viewDidLoad() 28lines
 
 // expected more simply label value 
-// If you don't type argument, you can get simpler results
+// If you don't type argument, you can get simple results
 message: ChanLog Info Label
 value: Optional("chanLog")
 ```
