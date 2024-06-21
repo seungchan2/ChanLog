@@ -7,12 +7,6 @@
 
 import Foundation
 
-extension CustomStringConvertible where Self: ChanLoggable {
-    public var description: String {
-        return String(describing: self)
-    }
-}
-
 extension String: ChanLoggable {}
 extension Int: ChanLoggable {}
 extension Int8: ChanLoggable {}
@@ -22,7 +16,7 @@ extension Int64: ChanLoggable {}
 extension Double: ChanLoggable {}
 extension Float: ChanLoggable {}
 extension Bool: ChanLoggable {}
-extension Array: ChanLoggable where Element: CustomStringConvertible {}
+extension Array: ChanLoggable {}
 extension NSObject: ChanLoggable {}
 extension Dictionary: ChanLoggable {}
 extension Set: ChanLoggable {}

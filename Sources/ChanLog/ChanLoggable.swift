@@ -17,51 +17,47 @@ public enum DebugMode {
 
 public extension ChanLoggable {
     func debug(_ message: Any,
-               _ arguments: Any...,
                file: String = #file,
                function: String = #function,
                line: Int = #line) {
-        ChanLog.log(message, arguments, type: .debug, file: file, function: function, line: line, debugMode: .on)
+        ChanLog.log(message, [self], type: .debug, file: file, function: function, line: line, debugMode: .on)
     }
     
-    func debug(_ message: Any) {
+    func minDebug(_ message: Any) {
         ChanLog.log(message, [self], type: .debug, debugMode: .off)
     }
     
     func info(_ message: Any,
-              _ arguments: Any...,
               file: String = #file,
               function: String = #function,
               line: Int = #line) {
-        ChanLog.log(message, arguments, type: .info, file: file, function: function, line: line, debugMode: .on)
+        ChanLog.log(message, [self], type: .info, file: file, function: function, line: line, debugMode: .on)
     }
     
-    func info(_ message: Any) {
+    func minInfo(_ message: Any) {
         ChanLog.log(message, [self], type: .info, debugMode: .off)
     }
     
     func error(_ message: Any,
-               _ arguments: Any...,
                file: String = #file,
                function: String = #function,
                line: Int = #line) {
-        ChanLog.log(message, arguments, type: .error, file: file, function: function, line: line, debugMode: .on)
+        ChanLog.log(message, [self], type: .error, file: file, function: function, line: line, debugMode: .on)
     }
     
-    func error(_ message: Any) {
+    func minError(_ message: Any) {
         ChanLog.log(message, [self], type: .error, debugMode: .off)
     }
     
     func custom(category: String,
                 _ message: Any,
-                _ arguments: Any...,
                 file: String = #file,
                 function: String = #function,
                 line: Int = #line) {
-        ChanLog.log(message, arguments, type: .custom(name: category), file: file, function: function, line: line, debugMode: .on)
+        ChanLog.log(message, [self], type: .custom(name: category), file: file, function: function, line: line, debugMode: .on)
     }
     
-    func custom(category: String,
+    func minCustom(category: String,
                 _ message: Any) {
         ChanLog.log(message, [self], type: .custom(name: category), debugMode: .off)
     }
