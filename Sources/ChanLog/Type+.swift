@@ -26,3 +26,4 @@ extension Array: ChanLoggable where Element: CustomStringConvertible {}
 extension NSObject: ChanLoggable {}
 extension Dictionary: ChanLoggable {}
 extension Set: ChanLoggable {}
+extension Data: ChanLoggable {}
